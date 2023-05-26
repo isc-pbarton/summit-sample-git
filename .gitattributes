@@ -1,5 +1,2 @@
-*.sh text eol=lf
-*.cls text eol=lf
-*.mac text eol=lf
-*.int text eol=lf
-Dockerfil* text eol=lf
+# All text files use Unix line endings (because docker)
+* text eol=lf

@@ -1,10 +1,11 @@
-    ;do $System.OBJ.LoadDir("/opt/irisbuild/src","ck",,1)
-
     zn "%SYS"
     Do ##class(Security.Users).UnExpireUserPasswords("*")
+    // disable OS Authentication so I can share username in terminal and web context
+    set props("AutheEnabled") = 2031
+    do ##class(Security.System).Modify(, .props)
 
     zn "USER"
-    zpm "install git-source-control"
+    zpm "load https://github.com/intersystems/git-source-control"
     do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
     zpm "install passwordless"
     zpm "install objectscript-json-trace-viewer"
