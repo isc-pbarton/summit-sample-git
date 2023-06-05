@@ -13,7 +13,7 @@ XData RuleDefinition [ XMLNamespace = "http://www.intersystems.com/rule" ]
 <rule name="">
 <constraint name="msgClass" value="dc.Demo.PostMessage"></constraint>
 <when condition="ToUpper(Document.Post.Selftext) Contains &quot;DOG&quot;" comment="">
-<assign property="Document.ToEmailAddress" value="&quot;doggo@example.com&quot;"></assign>
+<assign property="Document.ToEmailAddress" value="&quot;dog@example.com&quot;"></assign>
 <assign property="Document.Found" value="&quot;Dog&quot;"></assign>
 <send transform="" target="dc.Demo.FileOperation"></send>
 <return></return>
