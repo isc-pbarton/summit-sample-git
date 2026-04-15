@@ -61,3 +61,6 @@ Install [VSCode](https://code.visualstudio.com/), [Docker](https://marketplace.v
 
 Use the handy VSCode menu to access the production and business rule editor and run a terminal:
 <img width="656" alt="Screenshot 2020-10-29 at 20 15 56" src="https://user-images.githubusercontent.com/2781759/97608650-aa673480-1a23-11eb-999e-61e889304e59.png">
+
+
+TODO guide on unit tests

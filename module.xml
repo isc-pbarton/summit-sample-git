@@ -15,6 +15,10 @@
           <Name>objectscript-json-trace-viewer</Name>
           <Version>1.0.*</Version>
         </ModuleReference>
+        <ModuleReference>
+          <Name>git-source-control</Name>
+          <Version>2.16.0</Version>
+        </ModuleReference>
       </Dependencies>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="Ens.Config.DefaultSettings.ESD"/>
@@ -22,6 +26,8 @@
       <Resource Name="dc.Reddit.PKG"/>
       <Resource Name="dc.Demo.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
+      
+      <UnitTest Name="/tests/unit_tests/" Package="sample" Format="UDL" />
     </Module>
   </Document>
 </Export>
