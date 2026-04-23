@@ -1,22 +1,25 @@
 {
     "files.associations": {
-    
         "Dockerfile*": "dockerfile",
         "iris.script": "objectscript"
       },
-    "objectscript.conn" :{
-      "ns": "USER",
-      "username": "_SYSTEM",
-      "password": "SYS",
-      "docker-compose": {
-        "service": "iris",
-        "internalPort": 52773
-      },
+    "intersystems.servers": {
+        "/default": "demo-app",
+        "demo-app": {
+            "webServer": {
+                "host":"localhost",
+                "port": 52132,            
+            },
+            "username": "_SYSTEM"
+        }
+    },
+    "objectscript.conn": {
       "active": true,
+      "server": "demo-app",
+      "ns": "USER",
       "links": {
         "Production": "http://localhost:${port}/csp/user/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Demo.Production",
         "Rule": "http://localhost:${port}/csp/user/EnsPortal.RuleEditor.zen?RULE=dc.Demo.FilterPostsRoutingRule"
-        
       }
     }
 

@@ -1,7 +1,9 @@
-Class dc.Reddit.Post Extends (%Persistent, %JSON.Adaptor, %XML.Adaptor)
+Class dc.Reddit.Post Extends (%Persistent, %JSON.Adaptor, %XML.Adaptor, %pkg.isc.rest.model.adaptor)
 {
 
 Parameter %JSONIGNOREINVALIDFIELD = 1;
+
+Parameter RESOURCENAME = "REDDITPOST";
 
 Property OriginalJSON As %String(%JSONINCLUDE = "none", MAXLEN = 3000000);
 
@@ -14,6 +16,12 @@ Property Author As %String(%JSONFIELDNAME = "author", MAXLEN = 255);
 Property Url As %String(%JSONFIELDNAME = "url", MAXLEN = 255);
 
 Property CreatedUTC As %Float(%JSONFIELDNAME = "created_utc");
+
+
+ClassMethod CheckPermission(pID As %String, pOperation As %String, pUserContext As %RegisteredObject, ByRef URLParams) As %Boolean
+{
+	Return 1
+}
 
 Storage Default
 {

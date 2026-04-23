@@ -19,6 +19,10 @@
           <Name>git-source-control</Name>
           <Version>2.16.0</Version>
         </ModuleReference>
+        <ModuleReference>
+          <Name>isc.rest</Name>
+          <Version>1.2.2</Version>
+        </ModuleReference>
       </Dependencies>
       <SourcesRoot>src</SourcesRoot>
       <Resource Name="Ens.Config.DefaultSettings.ESD"/>
@@ -26,6 +30,14 @@
       <Resource Name="dc.Reddit.PKG"/>
       <Resource Name="dc.Demo.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
+      <!-- Passthrough Services web app -->
+      <WebApplication
+        Name="/sampleapp/api"
+        NameSpace="USER"
+        DispatchClass="REST.Dispatch"
+        AutheEnabled="#{$$$AuthePassword}"
+        Recurse="1"
+        />
       
       <UnitTest Name="/tests/unit_tests/" Package="sample" Format="UDL" />
     </Module>
