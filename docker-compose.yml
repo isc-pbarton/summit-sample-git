@@ -11,6 +11,9 @@ services:
     volumes:
       - ./:/home/irisowner/irisdev/
     mem_limit: 1g
+    networks:
+      - app-network
+
   webgateway:
     image: containers.intersystems.com/intersystems/webgateway:2026.1
     init: true
@@ -67,5 +70,5 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 192.170.144.0/24
-          gateway: 192.170.144.1
+        - subnet: 192.171.144.0/24
+          gateway: 192.171.144.1
