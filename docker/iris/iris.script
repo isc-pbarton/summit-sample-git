@@ -5,6 +5,9 @@
     do ##class(Security.System).Modify(, .props)
 
     zn "USER"
+    s version="latest" s r=##class(%Net.HttpRequest).%New(),r.Server="pm.community.intersystems.com",r.SSLConfiguration="ISC.FeatureTracker.SSL.Config" d r.Get("/packages/zpm/"_version_"/installer"),$system.OBJ.LoadStream(r.HttpResponse.Data,"c")
+    zpm "repo -r -n registry -url https://pm.community.intersystems.com/ -user """" -pass """""
+
     zpm "load /home/irisowner/irisdev/ -dev -v":1:1
     do ##class(%Studio.SourceControl.Interface).SourceControlClassSet("SourceControl.Git.Extension")
 

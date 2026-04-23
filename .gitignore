@@ -1,5 +1,6 @@
 .DS_Store
 Cat.txt
 Dog.txt
+**/*.log
 
 .ssh/*

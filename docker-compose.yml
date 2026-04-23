@@ -1,15 +1,71 @@
-version: '3.6'
 services:
   iris:
     build: 
       context: .
-      dockerfile: Dockerfile
+      dockerfile: ./docker/iris/Dockerfile
     restart: always
     command: --check-caps false --ISCAgent false
     ports: 
       - 1972
-      - 52795:52773
-      - 53773
+      # - 53773
     volumes:
       - ./:/home/irisowner/irisdev/
     mem_limit: 1g
+  webgateway:
+    image: containers.intersystems.com/intersystems/webgateway:2026.1
+    init: true
+    restart: always
+    hostname: webgateway
+    ports:
+      - 52132:80 
+    environment:
+    - ISC_DATA_DIRECTORY=/webgateway-shared/durable # gives 'durable SYS'; data will be persisted
+    - ISC_CSP_CONF_FILE=/webgateway-shared/CSP.conf
+    - ISC_CSP_INI_FILE=/webgateway-shared/CSP.ini
+    volumes:
+    - type: bind
+      source: ./docker/webgateway/
+      target: /webgateway-shared
+    networks:
+      - app-network
+
+  angular:
+    build:
+      context: .
+      dockerfile: docker/angular/Dockerfile
+    ports:
+      - 4200
+    volumes:
+      - ./ng/sampleapp:/app
+      - /app/.angular
+      - /app/node_modules
+    restart: always
+    networks:
+      - app-network
+
+  haproxy:
+    build:
+      context: .
+      dockerfile: docker/haproxy/Dockerfile
+    ports:
+      - 52131:80
+    depends_on:
+      - iris
+      - angular
+    restart: always
+    networks:
+      - app-network
+
+volumes:
+  node_modules:
+    driver: local
+  angular_cache:
+    driver: local
+
+networks:
+  app-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 192.170.144.0/24
+          gateway: 192.170.144.1
