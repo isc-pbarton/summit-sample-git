@@ -1,0 +1,40 @@
+<header>
+  <h1>Reddit Posts</h1>
+</header>
+
+<div class="content">
+  <div class="controls">
+    <label for="postsAfter">Posts after:</label>
+    <input id="postsAfter" type="datetime-local" [(ngModel)]="postsAfter" />
+    <button class="primary" (click)="fetchPosts()" [disabled]="loading">
+      {{ loading ? 'Loading...' : 'Fetch Posts' }}
+    </button>
+  </div>
+
+  @if (error) {
+    <p class="error">{{ error }}</p>
+  }
+
+  @if (posts.length > 0) {
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Author</th>
+          <th>Date</th>
+          <th>Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (post of posts; track post.url) {
+          <tr>
+            <td>{{ post.title }}</td>
+            <td>{{ post.author }}</td>
+            <td>{{ post.created_utc * 1000 | date:'short' }}</td>
+            <td><a [href]="post.url" target="_blank">View</a></td>
+          </tr>
+        }
+      </tbody>
+    </table>
+  }
+</div>

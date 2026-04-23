@@ -29,6 +29,7 @@
       <Resource Directory="i14y" Name="TestLookupTable.LUT"/>
       <Resource Name="dc.Reddit.PKG"/>
       <Resource Name="dc.Demo.PKG"/>
+      <Resource Name="REST.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
       <!-- Passthrough Services web app -->
       <WebApplication
