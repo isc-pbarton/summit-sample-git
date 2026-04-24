@@ -24,12 +24,11 @@
           <Version>1.2.2</Version>
         </ModuleReference>
       </Dependencies>
-      <SourcesRoot>src</SourcesRoot>
-      <Resource Name="Ens.Config.DefaultSettings.ESD"/>
-      <Resource Directory="i14y" Name="TestLookupTable.LUT"/>
-      <Resource Name="dc.Reddit.PKG"/>
-      <Resource Name="dc.Demo.PKG"/>
-      <Resource Name="REST.PKG"/>
+      <Resource Directory="src/i14y" Name="TestLookupTable.LUT"/>
+      <Resource Directory="src/i14y" Name="Ens.Config.DefaultSettings.ESD"/>
+      <Resource Directory="src" Name="dc.Reddit.PKG"/>
+      <Resource Directory="src" Name="dc.Demo.PKG"/>
+      <Resource Directory="src" Name="REST.PKG"/>
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
       <!-- Passthrough Services web app -->
       <WebApplication

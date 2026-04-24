@@ -17,7 +17,6 @@ Property Url As %String(%JSONFIELDNAME = "url", MAXLEN = 255);
 
 Property CreatedUTC As %Float(%JSONFIELDNAME = "created_utc");
 
-
 ClassMethod CheckPermission(pID As %String, pOperation As %String, pUserContext As %RegisteredObject, ByRef URLParams) As %Boolean
 {
 	Return 1
