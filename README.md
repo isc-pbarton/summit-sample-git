@@ -1,9 +1,14 @@
  [![Gitter](https://img.shields.io/badge/Available%20on-Intersystems%20Open%20Exchange-00b2a9.svg)](https://openexchange.intersystems.com/package/iris-interoperability-template)
  [![Quality Gate Status](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Firis-interoperability-template&metric=alert_status)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Firis-interoperability-template)
  [![Reliability Rating](https://community.objectscriptquality.com/api/project_badges/measure?project=intersystems_iris_community%2Firis-interoperability-template&metric=reliability_rating)](https://community.objectscriptquality.com/dashboard?id=intersystems_iris_community%2Firis-interoperability-template)
-# iris-interoperability-template
-This is a template of InterSystems IRIS Interoperability solution.
-It contains a simple interoperablity solution which reads data from Reddit, filters it and outputs into file or sends via email.
+# IRIS Full Stack Application w/ Interoperability Template
+This is a template of a full-stack application built on InterSystems IRIS with Interoperability.
+It contains:
+1. A simple interoperablity solution which reads data from Reddit, filters it and outputs into file or sends via email
+2. A backend via [isc.rest](https://github.com/intersystems/isc-rest) that allows data to be retrieved from the IRIS database;
+3. An example frontend app built in Angular with routing via HAProxy
+4. All of the necessary build infrastructure orchestrated via [IPM](https://github.com/intersystems/ipm)
+
 
 ## What The Sample Does
 
@@ -15,10 +20,12 @@ You can alter both the URL and frequency in the service's settings.
 The production has a business process with a rule, which filters on news that mentions cats and dogs. The business process then sends this data to a business operation which either saves data to a source folder /output/Dog.txt or /output/Cat.txt.
 <img width="864" alt="Screenshot 2020-10-29 at 19 38 58" src="https://user-images.githubusercontent.com/2781759/97606568-fcf32180-1a20-11eb-90de-4257dd2cf552.png"> 
 
+You can also access a view of the data via a frontend at http://localhost:52131/sampleapp/ ; this demonstrates a simple data retrieval mechanism via an isc.rest adaptor and dispatch class.
+
 ## Prerequisites
 Make sure you have [git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) and [Docker desktop](https://www.docker.com/products/docker-desktop) installed.
 
-## Installation: ZPM
+## Installation: IPM
 
 Open IRIS Namespace with Interoperability Enabled.
 Open Terminal and call:
