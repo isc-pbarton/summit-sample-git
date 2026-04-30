@@ -33,4 +33,3 @@ XData RuleDefinition [ XMLNamespace = "http://www.intersystems.com/rule" ]
 }
 
 }
-
